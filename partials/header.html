@@ -1,0 +1,135 @@
+<header class="site-header" role="banner">
+
+    <div class="header-inner">
+
+        <div class="header-left">
+            <!-- Логотип -->
+            <a class="logo" href="index.html" aria-label="КТЦ БелЖД — на главную">
+              <!-- можно заменить на <img src="assets/images/logo.svg" alt="КТЦ"> -->
+              <strong>КТЦ</strong><span class="logo-sub">БелЖД</span>
+            </a>
+        </div>
+  
+      <!-- Главное навигационное меню (desktop) -->
+      <div class="header-center">
+          <nav class="nav" id="main-nav" role="navigation" aria-label="Главное меню">
+             <ul class="nav-list">
+               <!-- О нас -->
+               <li class="nav-item has-mega">
+                 <a href="about.html" class="nav-link">
+                   О нас <span class="caret"></span>
+                 </a>
+                 <div class="mega-menu">
+                   <div class="mega-menu-inner">
+                     <!-- Левая колонка -->
+                     <div class="mega-col mega-links">
+                       <ul>
+                         <li><a href="certificates.html">Сертификаты</a></li>
+                         <li><a href="clients.html">Клиенты</a></li>
+                       </ul>
+                     </div>
+                     <!-- Правая колонка -->
+                     <div class="mega-col mega-contacts">
+                       <p><strong>Контакты</strong></p>
+                       <p>+375 (17) 000-00-00</p>
+                       <p>+375 (17) 000-00-00 (факс)</p>
+                       <p><a href="mailto:ktc@ktc.by">ktc@ktc.by</a></p>
+                     </div>
+                   </div>
+                 </div>
+               </li>
+       
+               <!-- Услуги -->
+               <li class="nav-item has-mega">
+                 <a href="services.html" class="nav-link">
+                   Услуги <span class="caret"></span>
+                 </a>
+                 <div class="mega-menu">
+                   <div class="mega-menu-inner">
+                     <!-- Левая колонка -->
+                     <div class="mega-col mega-links">
+                       <ul>
+                         <li><a href="services.html#dev">Комплексная разработка ПО</a></li>
+                         <li><a href="services.html#is">Информационные системы</a></li>
+                         <li><a href="services.html#app">Прикладное ПО</a></li>
+                         <li><a href="services.html#embedded">Встраиваемое ПО</a></li>
+                         <li><a href="services.html#integration">Модульные решения</a></li>
+                         <li><a href="services.html#web">Веб-приложения</a></li>
+                         <li><a href="services.html#other">Доп. услуги</a></li>
+                       </ul>
+                     </div>
+                     <!-- Правая колонка -->
+                     <div class="mega-col mega-contacts">
+                       <p><strong>Свяжитесь с нами</strong></p>
+                       <p>+375 (17) 000-00-00</p>
+                       <p><a href="mailto:ktc@ktc.by">ktc@ktc.by</a></p>
+                     </div>
+                   </div>
+                 </div>
+               </li>
+       
+               <!-- Проекты -->
+               <li class="nav-item">
+                 <a class="nav-link" href="projects.html">Проекты</a>
+               </li>
+       
+               <!-- Контакты -->
+               <li class="nav-item">
+                 <a class="nav-link" href="contacts.html">Контакты</a>
+               </li>
+             </ul>
+           </nav>
+      </div>
+  
+      <!-- CTA / контакты -->
+      <div class="header-right">
+          <div class="header-actions">
+            <a class="phone" href="tel:+375172254098">+375 (17) 000-00-00</a>
+            <a class="btn-primary" href="order.html">Заказать продукт</a>
+          </div>
+      </div>
+  
+      <!-- Бургер (mobile) -->
+      <button id="burger" class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  
+    <!-- Мобильное меню (выезжающее) -->
+    <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <ul class="mobile-nav-list">
+  
+          <li class="mobile-has-sub">
+            <button class="mobile-sub-toggle">О нас <span class="caret"></span></button>
+            <ul class="mobile-submenu">
+              <li><a href="certificates.html">Сертификаты</a></li>
+              <li><a href="clients.html">Клиенты</a></li>
+            </ul>
+          </li>
+  
+          <li class="mobile-has-sub">
+            <button class="mobile-sub-toggle">Услуги <span class="caret"></span></button>
+            <ul class="mobile-submenu">
+              <li><a href="services.html#dev">Комплексная разработка ПО</a></li>
+              <li><a href="services.html#is">Информационные системы</a></li>
+              <li><a href="services.html#app">Прикладное ПО</a></li>
+              <li><a href="services.html#embedded">Низкоуровневое ПО</a></li>
+              <li><a href="services.html#integration">Модульные решения</a></li>
+              <li><a href="services.html#web">Веб-приложения</a></li>
+              <li><a href="services.html#other">Доп. услуги</a></li>
+            </ul>
+          </li>
+  
+          <li><a href="projects.html">Проекты</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+          <li class="mobile-cta"><a class="btn-primary" href="order.html">Заказать продукт</a></li>
+          <li class="mobile-phone"><a href="tel:+375172254098">+375 (17) 000-00-00</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- Затенение фона при открытом мобильном меню -->
+    <div id="menu-overlay" class="menu-overlay" tabindex="-1" aria-hidden="true"></div>
+  </header>
+  
