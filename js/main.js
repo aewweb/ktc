@@ -107,3 +107,4 @@ window.addEventListener("resize", () => {
   canvas.width = width;
   canvas.height = height;
 });
+

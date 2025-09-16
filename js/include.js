@@ -26,6 +26,57 @@ function initHeader() {
   const overlay = document.getElementById("menu-overlay");
   const body = document.body;
 
+  const desktopOverlay = document.getElementById("desktop-overlay");
+
+document.querySelectorAll(".has-mega").forEach(item => {
+  const link = item.querySelector(".nav-link");
+  const menu = item.querySelector(".mega-menu");
+  if (!link || !menu) return;
+  let hoverTimeout;
+
+  item.addEventListener("mouseenter", () => {
+    if (window.innerWidth <= 992) return;
+    clearTimeout(hoverTimeout);
+
+    document.querySelectorAll(".has-mega.open").forEach(h => {
+      if (h !== item) h.classList.remove("open");
+    });
+
+    item.classList.add("open");
+    menu.setAttribute("aria-hidden", "false");
+    link.setAttribute("aria-expanded", "true");
+
+    if (desktopOverlay) desktopOverlay.classList.add("visible");
+  });
+
+  item.addEventListener("mouseleave", () => {
+    if (window.innerWidth <= 992) return;
+    hoverTimeout = setTimeout(() => {
+      item.classList.remove("open");
+      menu.setAttribute("aria-hidden", "true");
+      link.setAttribute("aria-expanded", "false");
+
+      const anyOpen = document.querySelector(".has-mega.open");
+      if (!anyOpen && desktopOverlay) desktopOverlay.classList.remove("visible");
+    }, 180);
+  });
+});
+
+// Закрытие по клику на overlay
+ if (desktopOverlay) {
+  desktopOverlay.addEventListener("click", () => {
+    document.querySelectorAll(".has-mega.open").forEach(h => {
+      h.classList.remove("open");
+      const l = h.querySelector(".nav-link");
+      if (l) l.setAttribute("aria-expanded", "false");
+      const m = h.querySelector(".mega-menu");
+      if (m) m.setAttribute("aria-hidden", "true");
+    });
+    desktopOverlay.classList.remove("visible");
+  });
+ }
+
+
   if (!header || !burger || !mobileMenu || !overlay) {
     console.warn("initHeader: отсутствуют ключевые элементы header/menu/overlay");
     return;
@@ -153,3 +204,4 @@ function initHeader() {
   checkScroll();
   window.addEventListener("scroll", checkScroll);
 }
+
