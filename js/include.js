@@ -31,7 +31,7 @@ function initHeader() {
     return;
   }
 
-  // Открыть мобильное меню
+  // --- Открыть мобильное меню ---
   function openMobile() {
     mobileMenu.classList.add("open");
     overlay.classList.add("visible");
@@ -39,10 +39,10 @@ function initHeader() {
     burger.setAttribute("aria-expanded", "true");
     mobileMenu.setAttribute("aria-hidden", "false");
     overlay.setAttribute("aria-hidden", "false");
-    body.classList.add("no-scroll");
+    body.classList.add("no-scroll"); // блокируем скролл страницы
   }
 
-  // Закрыть мобильное меню
+  // --- Закрыть мобильное меню ---
   function closeMobile() {
     mobileMenu.classList.remove("open");
     overlay.classList.remove("visible");
@@ -50,34 +50,31 @@ function initHeader() {
     burger.setAttribute("aria-expanded", "false");
     mobileMenu.setAttribute("aria-hidden", "true");
     overlay.setAttribute("aria-hidden", "true");
-    body.classList.remove("no-scroll");
+    body.classList.remove("no-scroll"); // возвращаем прокрутку
   }
 
-  // Клик по бургеру
+  // --- Клик по бургеру ---
   burger.addEventListener("click", (e) => {
     e.stopPropagation();
-    if (mobileMenu.classList.contains("open")) closeMobile();
-    else openMobile();
+    mobileMenu.classList.contains("open") ? closeMobile() : openMobile();
   });
 
-  // клик по overlay — закрыть
+  // --- Клик по overlay — закрыть ---
   overlay.addEventListener("click", closeMobile);
 
-  // ESC — закрыть
+  // --- ESC — закрыть ---
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      closeMobile();
-    }
+    if (e.key === "Escape") closeMobile();
   });
 
-  // ресайз: при переходе на десктоп — закрываем mobile menu
+  // --- Resize: закрываем меню при переходе на десктоп ---
   window.addEventListener("resize", () => {
     if (window.innerWidth > 992 && mobileMenu.classList.contains("open")) {
       closeMobile();
     }
   });
 
-  // Mobile accordion (подменю)
+  // --- Mobile accordion (подменю) ---
   document.querySelectorAll(".mobile-has-sub .mobile-sub-toggle").forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -85,7 +82,7 @@ function initHeader() {
       if (!parent) return;
       const isOpen = parent.classList.contains("open");
 
-      // при открытии — опционально закрыть другие
+      // Закрываем все остальные
       document.querySelectorAll(".mobile-has-sub.open").forEach(el => {
         if (el !== parent) {
           el.classList.remove("open");
@@ -110,7 +107,7 @@ function initHeader() {
     });
   });
 
-  // Desktop: mega menu hover logic (keeps current behavior)
+  // --- Desktop: mega menu hover ---
   document.querySelectorAll(".has-mega").forEach(item => {
     const link = item.querySelector(".nav-link");
     const menu = item.querySelector(".mega-menu");
@@ -136,12 +133,10 @@ function initHeader() {
     });
   });
 
-  // Клик вне header — закрыть mobile и mega-menus
+  // --- Клик вне header — закрыть mobile и mega ---
   document.addEventListener("click", (e) => {
     if (!e.target.closest(".site-header") && !e.target.closest("#mobile-menu")) {
-      // закрыть мобильное меню
       closeMobile();
-      // закрыть mega
       document.querySelectorAll(".has-mega.open").forEach(h => {
         h.classList.remove("open");
         const l = h.querySelector(".nav-link");
@@ -152,7 +147,7 @@ function initHeader() {
     }
   });
 
-  // тень шапки при скролле (опционально)
+  // --- Тень шапки при скролле ---
   const scrollThreshold = 8;
   function checkScroll() { header.classList.toggle("scrolled", window.scrollY > scrollThreshold); }
   checkScroll();

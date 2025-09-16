@@ -1,6 +1,6 @@
 :root{
   --header-height: 70px;
-  --accent: #005fa9;
+  --accent: #0072CE;
 }
 
 /* общий сброс */
@@ -79,7 +79,20 @@
 /* header actions */
 .header-actions { display:flex; gap:12px; align-items:center; }
 .phone { color:var(--accent); text-decoration:none; font-weight:600; }
-.btn-primary { background:var(--accent); color:#fff; padding:6px 14px; border-radius:20px; text-decoration:none; font-weight:600; }
+.btn-primary {
+  padding: 14px 28px;
+  background-color: black;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0072CE;
+}
 
 /* --- Burger (mobile) --- */
 .burger {
