@@ -21,7 +21,7 @@
 /* Десктоп: 3 колонки (логотип | меню | кнопки) */
 .header-inner {
   display: grid;
-  grid-template-columns: 350px 1fr 0px 350px; /* logo | center nav | right */
+  grid-template-columns: clamp(350px, 20vw, 450px) 1fr 0px clamp(350px, 20vw, 450px); /* logo | center nav | right */
   align-items: center;
   height: var(--header-height);
   padding: 0 10px;
@@ -43,7 +43,7 @@
 .logo { display:flex; align-items:baseline; gap:6px; color:var(--accent); text-decoration:none; font-size:18px; }
 .logo strong { font-size:20px; }
 .logo-img {
-  height: 50px;
+  height: 70px;
   width: auto;
   display: block;
 }
@@ -81,12 +81,17 @@
 .mega-menu-inner { max-width:1200px; margin:0 auto; padding:0 20px; display:flex; gap:40px; align-items:flex-start; }
 .mega-links { flex:1; }
 .mega-links ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; align-items:flex-start; }
-.mega-links a { text-decoration:none; color:#133248; font-weight:500; }
+.mega-links a { text-decoration:none; color:black; font-weight:500; }
 .mega-contacts { flex:0 0 260px; text-align:right; }
 
 /* header actions */
 .header-actions { display:flex; gap:12px; align-items:center; }
-.phone { text-decoration:none; color:#133248; font-weight:500; }
+.phone {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
 .btn-primary {
   padding: 10px 25px;
   background-color: black;
@@ -224,7 +229,9 @@
   .phone { display: none; }
   .burger { display: flex; }
   .header-center { justify-self: start; }
+  .logo-img { height: 50px;}
 }
+
 @media (max-width: 420px) {
   .mobile-menu { width: 100%; right: -100%; }
   .mobile-menu.open { right: 0; }
