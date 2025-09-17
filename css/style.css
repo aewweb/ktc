@@ -105,15 +105,32 @@ body {
 
 /* --- Adaptive styles --- */
 @media (max-width: 1024px) {
+  .hero {
+    justify-content: start;
+  }
+
+  .hero-content {
+    justify-content: flex-start;   /* убираем центрирование по вертикали */
+    padding-top: calc(var(--header-height, 72px) + 40px); /* отступ от шапки */
+    height: auto; /* больше не растягиваем на всю высоту */
+  }
+
+  .hero-main-title {
+    font-size: clamp(1.2rem, 8vw, 2.5rem); /* больше на мобилке, но уменьшается для маленьких экранов */
+    margin-bottom: 35px; /* больше отступа до блока */
+    font-weight: 600;
+  }
+
   .hero-glass-block {
     padding: 20px;
+    margin-top: 30px;
     margin-bottom: 50px;
-    margin-top: 0;
   }
 
   .hero-glass-block p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 30px;
+    margin-top: 20px;
   }
 
   .btn-primary {
