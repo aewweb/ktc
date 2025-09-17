@@ -1,3 +1,4 @@
+// hero-grid.js — адаптивный скрипт сетки (desktop + mobile)
 const canvas = document.getElementById("hero-canvas");
 const ctx = canvas.getContext("2d");
 
@@ -6,22 +7,43 @@ let height = window.innerHeight;
 canvas.width = width;
 canvas.height = height;
 
-const spacing = 20; // шаг сетки
-const amplitude = 6; // амплитуда волн
-const rippleStrength = 120; // радиус реакции
-let time = 0;
+// базовые параметры (desktop)
+let spacing = 20;
+let amplitude = 6;
+let rippleStrength = 120;
+let timeStep = 0.012;
 
-let mouse = { x: width / 2, y: height / 2 };
+let time = 0;
 let ripples = [];
 
-// реакция на мышь
-document.addEventListener("mousemove", (e) => {
-  mouse.x = e.clientX;
-  mouse.y = e.clientY;
-  ripples.push({ x: mouse.x, y: mouse.y, start: time });
-});
+const isTouchDevice = ("ontouchstart" in window) || navigator.maxTouchPoints > 0;
 
-// авто-волны (эффект "капель/ветра")
+// если мобильное — уменьшаем базовую сетку
+if (isTouchDevice) {
+  spacing = 12;
+  amplitude = 4;
+  rippleStrength = 80;
+  timeStep = 0.009;
+
+  // tap → более активная волна
+  document.addEventListener("touchstart", (e) => {
+    const t = e.changedTouches[0];
+    ripples.push({
+      x: t.clientX,
+      y: t.clientY,
+      start: time,
+      amp: amplitude * 2.2,       // 🔥 сильнее чем обычные
+      strength: rippleStrength*1.5 // шире зона отклика
+    });
+  }, { passive: true });
+} else {
+  // Desktop: реакция на мышь
+  document.addEventListener("mousemove", (e) => {
+    ripples.push({ x: e.clientX, y: e.clientY, start: time });
+  });
+}
+
+// авто-волны (мягкие)
 setInterval(() => {
   const rx = Math.random() * width;
   const ry = Math.random() * height;
@@ -31,16 +53,17 @@ setInterval(() => {
 function draw() {
   ctx.clearRect(0, 0, width, height);
 
-  // чисто белый фон
+  // фон — чисто белый
   ctx.fillStyle = "#ffffff";
   ctx.fillRect(0, 0, width, height);
 
-  // стиль сетки (затухание к краям)
+
+  // сетка
   const gridGrad = ctx.createRadialGradient(
     width / 2, height / 2, 0,
     width / 2, height / 2, Math.max(width, height) / 1.2
   );
-  gridGrad.addColorStop(0, "rgba(0,114,206,0.35)");
+  gridGrad.addColorStop(0, "rgba(0,114,206,0.32)");
   gridGrad.addColorStop(1, "#fff");
   ctx.strokeStyle = gridGrad;
   ctx.lineWidth = 0.7;
@@ -49,19 +72,18 @@ function draw() {
   for (let y = 0; y <= height; y += spacing) {
     ctx.beginPath();
     for (let x = 0; x <= width; x += spacing) {
-      let wave = Math.sin(x / 90 + time * 0.6) * 2;
-
-      ripples.forEach((r) => {
+      let wave = Math.sin(x / 90 + time * 0.6) * 1.6;
+      for (let i = 0; i < ripples.length; i++) {
+        const r = ripples[i];
         const dx = x - r.x;
         const dy = y - r.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        const localWave =
-          Math.sin(dist / 25 - (time - r.start) * 2.5) *
-          amplitude *
-          Math.exp(-dist / rippleStrength);
-        wave += localWave;
-      });
-
+        const amp = r.amp || amplitude;
+        const str = r.strength || rippleStrength;
+        wave += Math.sin(dist / 25 - (time - r.start) * 2.2) *
+                amp *
+                Math.exp(-dist / str);
+      }
       ctx.lineTo(x, y + wave);
     }
     ctx.stroke();
@@ -71,40 +93,36 @@ function draw() {
   for (let x = 0; x <= width; x += spacing) {
     ctx.beginPath();
     for (let y = 0; y <= height; y += spacing) {
-      let wave = Math.cos(y / 90 + time * 0.6) * 2;
-
-      ripples.forEach((r) => {
+      let wave = Math.cos(y / 90 + time * 0.6) * 1.6;
+      for (let i = 0; i < ripples.length; i++) {
+        const r = ripples[i];
         const dx = x - r.x;
         const dy = y - r.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        const localWave =
-          Math.cos(dist / 25 - (time - r.start) * 2.5) *
-          amplitude *
-          Math.exp(-dist / rippleStrength);
-        wave += localWave;
-      });
-
+        const amp = r.amp || amplitude;
+        const str = r.strength || rippleStrength;
+        wave += Math.cos(dist / 25 - (time - r.start) * 2.2) *
+                amp *
+                Math.exp(-dist / str);
+      }
       ctx.lineTo(x + wave, y);
     }
     ctx.stroke();
   }
 
-  // удаляем старые волны
   ripples = ripples.filter((r) => time - r.start < 4);
 }
 
 function animate() {
-  time += 0.012; // плавное движение
+  time += timeStep;
   draw();
   requestAnimationFrame(animate);
 }
 animate();
 
-// адаптивность
 window.addEventListener("resize", () => {
   width = window.innerWidth;
   height = window.innerHeight;
   canvas.width = width;
   canvas.height = height;
 });
-
