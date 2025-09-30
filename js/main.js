@@ -16,7 +16,7 @@ let timeStep = 0.012;
 let time = 0;
 let ripples = [];
 
-const isTouchDevice = ("ontouchstart" in window) || navigator.maxTouchPoints > 0;
+const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
 // если мобильное — уменьшаем базовую сетку
 if (isTouchDevice) {
@@ -26,16 +26,20 @@ if (isTouchDevice) {
   timeStep = 0.009;
 
   // tap → более активная волна
-  document.addEventListener("touchstart", (e) => {
-    const t = e.changedTouches[0];
-    ripples.push({
-      x: t.clientX,
-      y: t.clientY,
-      start: time,
-      amp: amplitude * 2.2,       // 🔥 сильнее чем обычные
-      strength: rippleStrength*1.5 // шире зона отклика
-    });
-  }, { passive: true });
+  document.addEventListener(
+    "touchstart",
+    (e) => {
+      const t = e.changedTouches[0];
+      ripples.push({
+        x: t.clientX,
+        y: t.clientY,
+        start: time,
+        amp: amplitude * 2.2, // 🔥 сильнее чем обычные
+        strength: rippleStrength * 1.5, // шире зона отклика
+      });
+    },
+    { passive: true }
+  );
 } else {
   // Desktop: реакция на мышь
   document.addEventListener("mousemove", (e) => {
@@ -57,11 +61,14 @@ function draw() {
   ctx.fillStyle = "#ffffff";
   ctx.fillRect(0, 0, width, height);
 
-
   // сетка
   const gridGrad = ctx.createRadialGradient(
-    width / 2, height / 2, 0,
-    width / 2, height / 2, Math.max(width, height) / 1.2
+    width / 2,
+    height / 2,
+    0,
+    width / 2,
+    height / 2,
+    Math.max(width, height) / 1.2
   );
   gridGrad.addColorStop(0, "rgba(0,114,206,0.32)");
   gridGrad.addColorStop(1, "#fff");
@@ -80,9 +87,10 @@ function draw() {
         const dist = Math.sqrt(dx * dx + dy * dy);
         const amp = r.amp || amplitude;
         const str = r.strength || rippleStrength;
-        wave += Math.sin(dist / 25 - (time - r.start) * 2.2) *
-                amp *
-                Math.exp(-dist / str);
+        wave +=
+          Math.sin(dist / 25 - (time - r.start) * 2.2) *
+          amp *
+          Math.exp(-dist / str);
       }
       ctx.lineTo(x, y + wave);
     }
@@ -101,9 +109,10 @@ function draw() {
         const dist = Math.sqrt(dx * dx + dy * dy);
         const amp = r.amp || amplitude;
         const str = r.strength || rippleStrength;
-        wave += Math.cos(dist / 25 - (time - r.start) * 2.2) *
-                amp *
-                Math.exp(-dist / str);
+        wave +=
+          Math.cos(dist / 25 - (time - r.start) * 2.2) *
+          amp *
+          Math.exp(-dist / str);
       }
       ctx.lineTo(x + wave, y);
     }
