@@ -44,28 +44,82 @@
               <div class="mega-menu-inner">
                 <div class="mega-col mega-links">
                   <ul>
-                    <li class="has-sub">
-                      <a href="services.html#dev">Разработка ПО</a>
-                      <ul class="submenu">
-                        <li><a href="services.html#dev">Веб-разработка</a></li>
-                        <li>
-                          <a href="services.html#it">Десктопные приложения</a>
-                        </li>
-                      </ul>
+                    <li class="has-sub" data-submenu="dev">
+                      <a href="services.html#dev">
+                        Разработка ПО
+                        <span class="caret" aria-hidden="true"></span>
+                      </a>
+                    </li>
+                    <li class="has-sub" data-submenu="low-level">
+                      <a href="services.html#low-level">
+                        Низкоуровневое программирование
+                        <span class="caret" aria-hidden="true"></span>
+                      </a>
                     </li>
                     <li>
-                      <a href="services.html#is"
-                        >Низкоуровневое программирование</a
-                      >
-                    </li>
-                    <li>
-                      <a href="services.html#app"
+                      <a href="services.html#railway"
                         >Работа по подвижному составу</a
                       >
                     </li>
-                    <li><a href="services.html#embedded">Доп. услуги</a></li>
+                    <li class="has-sub" data-submenu="additional">
+                      <a href="services.html#additional">
+                        Дополнительные услуги
+                        <span class="caret" aria-hidden="true"></span>
+                      </a>
+                    </li>
                   </ul>
                 </div>
+
+                <!-- Фиксированная область для подменю -->
+                <div class="mega-submenu-area">
+                  <div class="submenu-content" data-submenu-id="dev">
+                    <ul>
+                      <li><a href="services.html#web">Веб-разработка</a></li>
+                      <li>
+                        <a href="services.html#desktop"
+                          >Десктопные приложения</a
+                        >
+                      </li>
+                      <li>
+                        <a href="services.html#mobile">Мобильные приложения</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="submenu-content" data-submenu-id="low-level">
+                    <ul>
+                      <li>
+                        <a href="services.html#system"
+                          >Системное программирование</a
+                        >
+                      </li>
+                      <li>
+                        <a href="services.html#embedded"
+                          >Встраиваемые системы</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="submenu-content" data-submenu-id="additional">
+                    <ul>
+                      <li>
+                        <a href="services.html#analysis"
+                          >Анализ и проектирование</a
+                        >
+                      </li>
+                      <li>
+                        <a href="services.html#integration">Интеграции</a>
+                      </li>
+                      <li>
+                        <a href="services.html#support"
+                          >Тех. поддержка и сопровождение</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
                 <div class="mega-col mega-contacts">
                   <p><strong>Свяжитесь с нами</strong></p>
                   <p>+375 (17) 225-40-98</p>

@@ -28,25 +28,33 @@ function initHeader() {
 
   const desktopOverlay = document.getElementById("desktop-overlay");
 
+  // === DESKTOP: Mega menu hover ===
   document.querySelectorAll(".has-mega").forEach((item) => {
     const link = item.querySelector(".nav-link");
     const menu = item.querySelector(".mega-menu");
     if (!link || !menu) return;
+
     let hoverTimeout;
 
     item.addEventListener("mouseenter", () => {
       if (window.innerWidth <= 992) return;
       clearTimeout(hoverTimeout);
 
+      // Закрываем другие открытые меню
       document.querySelectorAll(".has-mega.open").forEach((h) => {
-        if (h !== item) h.classList.remove("open");
+        if (h !== item) {
+          h.classList.remove("open");
+          const l = h.querySelector(".nav-link");
+          if (l) l.setAttribute("aria-expanded", "false");
+          const m = h.querySelector(".mega-menu");
+          if (m) m.setAttribute("aria-hidden", "true");
+        }
       });
 
+      // Открываем текущее меню
       item.classList.add("open");
       menu.setAttribute("aria-hidden", "false");
       link.setAttribute("aria-expanded", "true");
-
-      if (desktopOverlay) desktopOverlay.classList.add("visible");
     });
 
     item.addEventListener("mouseleave", () => {
@@ -55,11 +63,77 @@ function initHeader() {
         item.classList.remove("open");
         menu.setAttribute("aria-hidden", "true");
         link.setAttribute("aria-expanded", "false");
+      }, 200);
+    });
+  });
 
-        const anyOpen = document.querySelector(".has-mega.open");
-        if (!anyOpen && desktopOverlay)
-          desktopOverlay.classList.remove("visible");
-      }, 180);
+  // === DESKTOP: Submenu hover (второй уровень, улучшенный) ===
+  document.querySelectorAll(".mega-links .has-sub").forEach((item) => {
+    const submenuId = item.getAttribute("data-submenu");
+    if (!submenuId) return;
+
+    const megaMenu = item.closest(".mega-menu");
+    if (!megaMenu) return;
+    const submenuArea = megaMenu.querySelector(".mega-submenu-area");
+    if (!submenuArea) return;
+
+    let showTimeout, hideTimeout;
+    const hoverDelay = 200;
+
+    function showSubmenu() {
+      clearTimeout(hideTimeout);
+      clearTimeout(showTimeout);
+
+      showTimeout = setTimeout(() => {
+        // скрываем все
+        submenuArea
+          .querySelectorAll(".submenu-content")
+          .forEach((c) => c.classList.remove("active"));
+        megaMenu
+          .querySelectorAll(".has-sub")
+          .forEach((sub) => sub.classList.remove("active"));
+
+        // активируем текущий
+        const targetContent = submenuArea.querySelector(
+          `[data-submenu-id="${submenuId}"]`
+        );
+        if (targetContent) targetContent.classList.add("active");
+        item.classList.add("active");
+      }, hoverDelay);
+    }
+
+    function hideSubmenu() {
+      clearTimeout(showTimeout);
+      clearTimeout(hideTimeout);
+
+      hideTimeout = setTimeout(() => {
+        if (!item.matches(":hover") && !submenuArea.matches(":hover")) {
+          item.classList.remove("active");
+          submenuArea
+            .querySelectorAll(".submenu-content")
+            .forEach((c) => c.classList.remove("active"));
+        }
+      }, hoverDelay);
+    }
+
+    item.addEventListener("mouseenter", () => {
+      if (window.innerWidth <= 992) return;
+      showSubmenu();
+    });
+
+    item.addEventListener("mouseleave", () => {
+      if (window.innerWidth <= 992) return;
+      hideSubmenu();
+    });
+
+    submenuArea.addEventListener("mouseenter", () => {
+      if (window.innerWidth <= 992) return;
+      clearTimeout(hideTimeout);
+    });
+
+    submenuArea.addEventListener("mouseleave", () => {
+      if (window.innerWidth <= 992) return;
+      hideSubmenu();
     });
   });
 
@@ -194,34 +268,6 @@ function initHeader() {
         }
       });
     });
-
-  // --- Desktop: mega menu hover ---
-  document.querySelectorAll(".has-mega").forEach((item) => {
-    const link = item.querySelector(".nav-link");
-    const menu = item.querySelector(".mega-menu");
-    if (!link || !menu) return;
-    let hoverTimeout;
-
-    item.addEventListener("mouseenter", () => {
-      if (window.innerWidth <= 992) return;
-      clearTimeout(hoverTimeout);
-      document.querySelectorAll(".has-mega.open").forEach((h) => {
-        if (h !== item) h.classList.remove("open");
-      });
-      item.classList.add("open");
-      menu.setAttribute("aria-hidden", "false");
-      link.setAttribute("aria-expanded", "true");
-    });
-
-    item.addEventListener("mouseleave", () => {
-      if (window.innerWidth <= 992) return;
-      hoverTimeout = setTimeout(() => {
-        item.classList.remove("open");
-        menu.setAttribute("aria-hidden", "true");
-        link.setAttribute("aria-expanded", "false");
-      }, 180);
-    });
-  });
 
   // --- Клик вне header — закрыть mobile и mega ---
   document.addEventListener("click", (e) => {
