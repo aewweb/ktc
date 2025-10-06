@@ -55,6 +55,8 @@ function initHeader() {
       item.classList.add("open");
       menu.setAttribute("aria-hidden", "false");
       link.setAttribute("aria-expanded", "true");
+
+      if (desktopOverlay) desktopOverlay.classList.add("visible");
     });
 
     item.addEventListener("mouseleave", () => {
@@ -63,7 +65,12 @@ function initHeader() {
         item.classList.remove("open");
         menu.setAttribute("aria-hidden", "true");
         link.setAttribute("aria-expanded", "false");
-      }, 200);
+
+        const anyOpen = document.querySelector(".has-mega.open");
+
+        if (!anyOpen && desktopOverlay)
+          desktopOverlay.classList.remove("visible");
+      }, 180);
     });
   });
 
