@@ -11,7 +11,7 @@ body {
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/css/Montserrat-VariableFont_wght.ttf") format("truetype");
+  src: url("/css/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -103,6 +103,99 @@ body {
   color: #000;
 }
 
+/* Цифры */
+.numbers {
+  padding: 50px 0;
+  height: 100vh;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.numbers .hero-main-title {
+  margin: 50px;  
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.numbers-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1rem, 0.9vw + 0.8rem, 1.4rem);
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 60px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.numbers-grid {
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.number-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.4s ease;
+}
+
+.number-item:hover {
+  transform: translateY(-8px);
+}
+
+.number-item span {
+  font-size: clamp(2rem, 7vw, 7rem);
+  font-weight: 400;
+  color: black;
+  display: block;
+  line-height: 1;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+/* знак "+" сразу отображается */
+.number-item span[data-plus="true"]::after {
+  content: "+";
+  font-size: clamp(2rem, 7vw, 7rem);
+  font-weight: 400;
+  margin-left: 6px;
+  color: black;
+  transform: translateY(-10%);
+}
+
+.number-item.visible span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Эффект мягкого свечения цифр */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(0, 114, 206, 0.2);
+  }
+  to {
+    text-shadow: 0 0 25px rgba(0, 114, 206, 0.45);
+  }
+}
+
+.number-item p {
+  font-family: "Montserrat";
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 2.5rem);
+  line-height: 1.5;
+  color: #444;
+  margin: 0;
+  text-transform: lowercase;
+  letter-spacing: 0.5px;
+}
+
+
 /* --- Adaptive styles --- */
 @media (max-width: 1024px) {
   .hero {
@@ -151,5 +244,33 @@ body {
   #hero-canvas {
     top: 72px;
     pointer-events: none;
+  }
+
+  .numbers {
+    padding: 0px 5px;
+    height: auto;
+  }
+
+  .numbers-grid {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .number-item span {
+    font-size: clamp(4.0rem, 12vw, 5rem);
+  }
+
+  .number-item p {
+    font-size: clamp(1rem, 4vw, 1.6rem);
+  }
+
+  .numbers-text {
+    font-size: clamp(1.0rem, 3.5vw, 1.5rem);
+    margin: 0px 10px 50px;
+  }
+
+  .numbers .hero-main-title {
+    font-size: clamp(2rem, 6vw, 4rem);
+    margin-bottom: 20px;
   }
 }
