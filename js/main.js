@@ -135,3 +135,44 @@ window.addEventListener("resize", () => {
   canvas.width = width;
   canvas.height = height;
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".count");
+  const items = document.querySelectorAll(".number-item");
+  let triggered = false;
+
+  function animateNumbers() {
+    counters.forEach(counter => {
+      const start = +counter.getAttribute("data-start");
+      const target = +counter.getAttribute("data-target");
+      const duration = 1500;
+      const frames = 60;
+      const increment = (target - start) / frames;
+      let current = start;
+      let frame = 0;
+
+      const updateCount = () => {
+        frame++;
+        current += increment;
+        counter.innerText = Math.floor(current);
+        if (frame < frames) {
+          requestAnimationFrame(updateCount);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !triggered) {
+      items.forEach(item => item.classList.add("visible"));
+      animateNumbers();
+      triggered = true;
+    }
+  }, { threshold: 0.4 });
+
+  observer.observe(document.querySelector(".numbers"));
+});
