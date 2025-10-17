@@ -113,8 +113,7 @@ body {
 }
 
 .numbers .hero-main-title {
-  margin: 50px;  
-  animation: glow 2s ease-in-out infinite alternate;
+  margin: 50px;
 }
 
 .numbers-text {
@@ -173,16 +172,6 @@ body {
 .number-item.visible span {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Эффект мягкого свечения цифр */
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px rgba(0, 114, 206, 0.2);
-  }
-  to {
-    text-shadow: 0 0 25px rgba(0, 114, 206, 0.45);
-  }
 }
 
 .number-item p {
