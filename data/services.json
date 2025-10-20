@@ -1,0 +1,221 @@
+{
+  "web-dev": {
+    "title": "Разработка ПО",
+    "subtitle": "Веб-разработка",
+    "image": "assets/images/logo.svg",
+    "summary": "Создание современных веб-решений для бизнеса и частных клиентов. Разрабатываем сайты, порталы и веб-приложения любой сложности.",
+    "subitems": [
+      {
+        "title": "Сайт под ключ",
+        "image": "assets/images/logo.svg",
+        "text": "Полный цикл разработки: дизайн, верстка, программирование, SEO и публикация.",
+        "tech": [
+          "assets/images/logo.svg",
+          "assets/images/logo.svg",
+          "assets/images/logo.svg",
+          "assets/images/logo.svg"
+        ]
+      },
+      {
+        "title": "Веб-приложение",
+        "image": "/images/webapp.jpg",
+        "text": "Интерактивные приложения с API, базами данных и личными кабинетами.",
+        "tech": [
+          "/images/react.svg",
+          "/images/vue.svg",
+          "/images/node.svg",
+          "/images/python.svg"
+        ]
+      },
+      {
+        "title": "Корпоративные порталы",
+        "image": "/images/portal.jpg",
+        "text": "Внутренние порталы и CRM-системы для автоматизации рабочих процессов.",
+        "tech": [
+          "/images/node.svg",
+          "/images/postgres.svg",
+          "/images/docker.svg"
+        ]
+      }
+    ]
+  },
+
+  "desktop-dev": {
+    "title": "Разработка ПО",
+    "subtitle": "Десктоп-приложение",
+    "image": "/images/desktop-app.jpg",
+    "summary": "Надёжные и производительные приложения под Windows и Linux, с нативным интерфейсом и интеграцией с оборудованием.",
+    "subitems": [
+      {
+        "title": "Программные компоненты",
+        "image": "/images/components.jpg",
+        "text": "Создание библиотек, SDK и утилит для других систем.",
+        "tech": ["/images/csharp.svg", "/images/python.svg", "/images/qt.svg"]
+      },
+      {
+        "title": "Интеграция с оборудованием",
+        "image": "/images/integration-hw.jpg",
+        "text": "Подключение и управление устройствами через промышленные интерфейсы.",
+        "tech": ["/images/cpp.svg", "/images/modbus.svg", "/images/rs485.svg"]
+      }
+    ]
+  },
+
+  "system-prog": {
+    "title": "Низкоуровневое программирование",
+    "subtitle": "Системное программирование",
+    "image": "/images/system-prog.jpg",
+    "summary": "Разработка драйверов, утилит и сервисов низкого уровня для Windows и Linux.",
+    "subitems": [
+      {
+        "title": "Разработка драйверов",
+        "image": "/images/drivers.jpg",
+        "text": "Создание и отладка драйверов устройств для Windows и Linux.",
+        "tech": ["/images/c.svg", "/images/cpp.svg", "/images/linux.svg"]
+      },
+      {
+        "title": "Работа с микроконтроллерами",
+        "image": "/images/microcontrollers.jpg",
+        "text": "Разработка программ для STM32, AVR, ESP32 и других микроконтроллеров.",
+        "tech": ["/images/stm32.svg", "/images/esp32.svg", "/images/c.svg"]
+      },
+      {
+        "title": "Оптимизация и отладка",
+        "image": "/images/optimization.jpg",
+        "text": "Оптимизация кода и памяти, устранение узких мест в производительности.",
+        "tech": ["/images/cpp.svg", "/images/gcc.svg", "/images/profiler.svg"]
+      }
+    ]
+  },
+
+  "embedded-sys": {
+    "title": "Низкоуровневое программирование",
+    "subtitle": "Встраиваемые системы",
+    "image": "/images/embedded-system.jpg",
+    "summary": "Создание программного обеспечения для встраиваемых устройств и микропроцессорных систем.",
+    "subitems": [
+      {
+        "title": "Программирование под ARM",
+        "image": "/images/arm.jpg",
+        "text": "Разработка прошивок и реализация логики управления под ARM и STM32.",
+        "tech": ["/images/arm.svg", "/images/stm32.svg", "/images/c.svg"]
+      },
+      {
+        "title": "Интеграция с аппаратной частью",
+        "image": "/images/hardware-integration.jpg",
+        "text": "Настройка взаимодействия между программой и физическим оборудованием.",
+        "tech": ["/images/uart.svg", "/images/spi.svg", "/images/i2c.svg"]
+      },
+      {
+        "title": "Подключение оборудования",
+        "image": "/images/hw-connect.jpg",
+        "text": "Создание драйверов и модулей для обмена данными с внешними устройствами.",
+        "tech": ["/images/can.svg", "/images/modbus.svg", "/images/cpp.svg"]
+      }
+    ]
+  },
+
+  "railway": {
+    "title": "Работа по подвижному составу",
+    "subtitle": "Железнодорожные решения",
+    "image": "/images/railway.jpg",
+    "summary": "Разработка программ и систем для диагностики, мониторинга и управления подвижным составом.",
+    "subitems": [
+      {
+        "title": "Системы управления",
+        "image": "/images/railway-control.jpg",
+        "text": "ПО для автоматизации и контроля бортовых систем локомотивов.",
+        "tech": ["/images/c.svg", "/images/python.svg", "/images/can.svg"]
+      },
+      {
+        "title": "Диагностика оборудования",
+        "image": "/images/diagnostics.jpg",
+        "text": "Системы сбора и анализа данных о состоянии узлов и систем.",
+        "tech": [
+          "/images/node.svg",
+          "/images/postgres.svg",
+          "/images/react.svg"
+        ]
+      }
+    ]
+  },
+
+  "analysis": {
+    "title": "Дополнительные услуги",
+    "subtitle": "Анализ и проектирование",
+    "image": "/images/analysis.jpg",
+    "summary": "Анализ бизнес-процессов, сбор требований и подготовка проектной документации.",
+    "subitems": [
+      {
+        "title": "Исследование бизнес-процессов",
+        "image": "/images/business-process.jpg",
+        "text": "Анализ текущих процессов и выявление узких мест.",
+        "tech": ["/images/bpmn.svg"]
+      },
+      {
+        "title": "Составление требований",
+        "image": "/images/requirements.jpg",
+        "text": "Определение функциональных и технических требований к продукту.",
+        "tech": ["/images/doc.svg", "/images/uml.svg"]
+      },
+      {
+        "title": "Составление ТЗ",
+        "image": "/images/specification.jpg",
+        "text": "Формирование детализированного технического задания для реализации.",
+        "tech": ["/images/doc.svg", "/images/pdf.svg"]
+      }
+    ]
+  },
+
+  "integration": {
+    "title": "Дополнительные услуги",
+    "subtitle": "Интеграция",
+    "image": "/images/integration.jpg",
+    "summary": "Разработка и внедрение модулей для связи между системами и сервисами.",
+    "subitems": [
+      {
+        "title": "Создание модулей",
+        "image": "/images/modules.jpg",
+        "text": "Разработка плагинов и адаптеров для существующих систем.",
+        "tech": ["/images/python.svg", "/images/js.svg"]
+      },
+      {
+        "title": "Создание API",
+        "image": "/images/api.jpg",
+        "text": "REST и GraphQL API для безопасного обмена данными.",
+        "tech": ["/images/api.svg", "/images/json.svg"]
+      },
+      {
+        "title": "Интеграция с внешними системами",
+        "image": "/images/ext-integration.jpg",
+        "text": "Соединение с CRM, ERP и сторонними веб-сервисами.",
+        "tech": [
+          "/images/http.svg",
+          "/images/docker.svg",
+          "/images/postgres.svg"
+        ]
+      }
+    ]
+  },
+
+  "support": {
+    "title": "Дополнительные услуги",
+    "subtitle": "Техническая поддержка и сопровождение",
+    "image": "/images/support.jpg",
+    "summary": "Сопровождение, обновления и оптимизация готовых решений. Поддержка на всех этапах эксплуатации.",
+    "subitems": [
+      {
+        "title": "Поддержка пользователей",
+        "image": "/images/user-support.jpg",
+        "text": "Решение технических вопросов и консультации по работе с продуктом.",
+        "tech": ["/images/github.svg", "/images/help.svg"]
+      },
+      {
+        "title": "Обновление и оптимизация",
+        "image": "/images/update.jpg",
+        "text": "Обновление систем, устранение ошибок и улучшение производительности.",
+        "tech": ["/images/docker.svg", "/images/node.svg"]
+      }
+    ]
+  }
+}
