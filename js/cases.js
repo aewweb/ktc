@@ -29,7 +29,7 @@ function showCaseCard() {
 /* --- Загрузка кейсов --- */
 async function loadCases() {
   try {
-    const res = await fetch("../data/cases.json");
+    const res = await fetch("data/cases.json");
     cases = await res.json();
     renderSelector();
     showCase(0);
