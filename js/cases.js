@@ -76,9 +76,9 @@ function showCase(index) {
       <div class="case-content">
         <h2 class="case-title">${c.title}</h2>
         <p class="case-description">${c.text}</p>
+        <div class="tech-stack">${stackHTML}</div>
       </div>
     </div>
-    <div class="tech-stack">${stackHTML}</div>
     ${galleryHTML}
   `;
 
