@@ -13,7 +13,7 @@
 
 /* Контейнер */
 .service-layout {
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 50px 20px;
 }
@@ -22,27 +22,27 @@
 .service-hero h1 {
   font-size: clamp(2rem, 3vw, 2.5rem);
   font-weight: 600;
-  margin: 1.5em 0 0.4em;
-  text-align: left;
+  margin: 0.6em 0;
+  text-align: center;
 }
 
-.service-hero h2 {
+.service-content h2 {
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 400;
   color: var(--text-muted);
-  text-align: left;
-  margin: 0 0 2em;
+  text-align: center;
+  /* margin: 0 0 2em; */
 }
 
 /* Блок с изображением и описанием */
-.hero-content {
+.service-content {
   display: grid;
   grid-template-columns: 400px 1fr;
   gap: 40px;
   align-items: start;
 }
 
-.hero-content img {
+.service-content img {
   width: 100%;
   border-radius: var(--radius);
   object-fit: cover;
@@ -50,12 +50,12 @@
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
-.hero-content img:hover {
+.service-content img:hover {
   transform: scale(1.015);
   box-shadow: var(--shadow-hover);
 }
 
-.hero-content p {
+.service-content p {
   font-size: 1rem;
   color: var(--text-muted);
   margin: 0;
@@ -129,16 +129,15 @@
 
 /* Адаптив */
 @media (max-width: 900px) {
-  .hero-content {
+  .service-content {
     grid-template-columns: 1fr;
   }
 
-  .service-hero h1,
-  .service-hero h2 {
-    text-align: center;
+  .service-hero h1 {
+    margin: 1.5em 0;
   }
 
-  .hero-content p {
+  .service-content p {
     text-align: left;
   }
 }

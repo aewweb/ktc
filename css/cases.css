@@ -61,7 +61,7 @@ h1 {
   font-size: 1.6rem;
   margin: 0 0 1rem 0;
   color: var(--accent);
-  text-align: left;
+  text-align: center;
 }
 
 .case-description {
@@ -73,6 +73,8 @@ h1 {
 /* --- Технологический стек --- */
 .tech-stack {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 0.8rem;
   padding: 1rem 0;
@@ -102,8 +104,9 @@ h1 {
 
 .case-gallery img,
 #caseScreenshot {
-  width: 30%;
-  max-width: 720px;
+  width: 40%;
+  min-width: 300px;
+  max-width: 600px;
   height: auto;
   border-radius: 10px;
   object-fit: cover;
@@ -146,9 +149,17 @@ h1 {
 }
 
 /* --- Fade-in при наведении картинки --- */
-.case-image:hover {
+.case-image:hover,
+.case-gallery img:hover,
+#caseScreenshot:hover {
   transform: scale(1.02);
   transition: transform 0.4s ease;
+}
+
+/* --- Fade-in при наведении картинки --- */
+.tech-stack img:hover {
+  transform: scale(1.01);
+  transition: transform 0.1s ease;
 }
 
 /* --- Адаптация для планшетов --- */
@@ -160,8 +171,9 @@ h1 {
   }
 
   .case-image {
-    width: 30%;
-    max-width: 900px;
+    width: 40%;
+    min-width: 200px;
+    max-width: 400px;
   }
 
   .case-content {
@@ -170,6 +182,8 @@ h1 {
 
   .case-gallery img {
     width: 30%;
+    min-width: 300px;
+    max-width: 500px;
   }
 
   .gallery-btn {
@@ -187,7 +201,9 @@ h1 {
   .case-image,
   .case-gallery img,
   #caseScreenshot {
-    width: 30%;
+    width: 40%;
+    min-width: 100px;
+    max-width: 300px;
   }
 
   .tech-stack img {
@@ -223,6 +239,7 @@ h1 {
   padding: 0.55rem 1rem;
   border-radius: 22px;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .cases-selector button.active {
