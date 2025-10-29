@@ -1,0 +1,31 @@
+{
+  "neman": {
+    "shortTitle": "Неман",
+    "title": "Система диспетчерской централизации «Неман»",
+    "text": "Программный комплекс для управления железнодорожными станциями...",
+    "image": "assets/images/logo.svg",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": [
+      "assets/images/logo.svg",
+      "assets/images/logo1.svg",
+      "assets/images/logo.svg",
+      "assets/images/logo2.svg"
+    ]
+  },
+  "auto": {
+    "shortTitle": "Автоматизация",
+    "title": "Система автоматизации процессов",
+    "text": "Описание второго кейса...",
+    "image": "img/auto_main.jpg",
+    "stack": ["img/python.png", "img/flask.png"],
+    "screenshots": ["img/a1.jpg", "img/a2.jpg"]
+  },
+  "ui": {
+    "shortTitle": "UI-платформа",
+    "title": "Платформа UI-компонентов",
+    "text": "Компонентная библиотека для внутренних проектов.",
+    "image": "img/ui_main.jpg",
+    "stack": ["img/react.png", "img/typescript.png"],
+    "screenshots": ["img/ui1.jpg", "img/ui2.jpg"]
+  }
+}
