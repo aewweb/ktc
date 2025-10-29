@@ -18,6 +18,7 @@
   z-index: 3000; /* самый высокий: шапка всегда поверх затемнения и меню */
   background: #fff;
   backdrop-filter: blur(4px);
+  border-bottom: 1px dashed black;
 }
 
 /* Десктоп: 3 колонки (логотип | меню | кнопки) */
@@ -102,6 +103,7 @@
   border-radius: 6px;
   font-weight: 500;
   transition: color 0.18s ease;
+  font-size: 18px;
 }
 .nav-link:hover {
   color: var(--accent);

@@ -11,7 +11,7 @@ body {
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/css/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+  src: url("../fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -184,7 +184,6 @@ body {
   letter-spacing: 0.5px;
 }
 
-
 /* --- Adaptive styles --- */
 @media (max-width: 1024px) {
   .hero {
@@ -246,7 +245,7 @@ body {
   }
 
   .number-item span {
-    font-size: clamp(4.0rem, 12vw, 5rem);
+    font-size: clamp(4rem, 12vw, 5rem);
   }
 
   .number-item p {
@@ -254,7 +253,7 @@ body {
   }
 
   .numbers-text {
-    font-size: clamp(1.0rem, 3.5vw, 1.5rem);
+    font-size: clamp(1rem, 3.5vw, 1.5rem);
     margin: 0px 10px 50px;
   }
 

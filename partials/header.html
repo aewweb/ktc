@@ -57,7 +57,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="services.html#railway"
+                      <a href="services.html?id=railway"
                         >Работа по подвижному составу</a
                       >
                     </li>
@@ -72,47 +72,58 @@
 
                 <!-- Фиксированная область для подменю -->
                 <div class="mega-submenu-area">
+                  <!-- Разработка ПО -->
                   <div class="submenu-content" data-submenu-id="dev">
                     <ul>
-                      <li><a href="services.html#web">Веб-разработка</a></li>
                       <li>
-                        <a href="services.html#desktop"
-                          >Десктопные приложения</a
-                        >
+                        <a href="services.html?id=web-dev">Веб-разработка</a>
                       </li>
                       <li>
-                        <a href="services.html#mobile">Мобильные приложения</a>
+                        <a href="services.html?id=desktop-dev"
+                          >Десктопные приложения</a
+                        >
                       </li>
                     </ul>
                   </div>
 
+                  <!-- Низкоуровневое программирование -->
                   <div class="submenu-content" data-submenu-id="low-level">
                     <ul>
                       <li>
-                        <a href="services.html#system"
+                        <a href="services.html?id=system-prog"
                           >Системное программирование</a
                         >
                       </li>
                       <li>
-                        <a href="services.html#embedded"
+                        <a href="services.html?id=embedded-sys"
                           >Встраиваемые системы</a
                         >
                       </li>
                     </ul>
                   </div>
 
+                  <!-- Работа по подвижному составу -->
+                  <div class="submenu-content" data-submenu-id="railway">
+                    <ul>
+                      <li>
+                        <a href="services.html?id=railway">Подвижной состав</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Дополнительные услуги -->
                   <div class="submenu-content" data-submenu-id="additional">
                     <ul>
                       <li>
-                        <a href="services.html#analysis"
+                        <a href="services.html?id=analysis"
                           >Анализ и проектирование</a
                         >
                       </li>
                       <li>
-                        <a href="services.html#integration">Интеграции</a>
+                        <a href="services.html?id=integration">Интеграция</a>
                       </li>
                       <li>
-                        <a href="services.html#support"
+                        <a href="services.html?id=support"
                           >Тех. поддержка и сопровождение</a
                         >
                       </li>
@@ -130,7 +141,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="projects.html">Проекты</a>
+            <a class="nav-link" href="cases.html">Проекты</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="contacts.html">Контакты</a>
@@ -187,10 +198,12 @@
             </button>
             <ul class="mobile-submenu" aria-hidden="true">
               <li>
-                <a href="services.html#dev" class="nav-link">Веб-разработка</a>
+                <a href="services.html?id=web-dev" class="nav-link"
+                  >Веб-разработка</a
+                >
               </li>
               <li>
-                <a href="services.html#dev" class="nav-link"
+                <a href="services.html?id=desktop-dev" class="nav-link"
                   >Десктопные приложения</a
                 >
               </li>
@@ -204,12 +217,12 @@
             </button>
             <ul class="mobile-submenu" aria-hidden="true">
               <li>
-                <a href="services.html#dev" class="nav-link"
+                <a href="services.html?id=system-prog" class="nav-link"
                   >Систменое программирование</a
                 >
               </li>
               <li>
-                <a href="services.html#dev" class="nav-link"
+                <a href="services.html?id=embedded-sys" class="nav-link"
                   >Встраиваемые системы</a
                 >
               </li>
@@ -218,7 +231,7 @@
 
           <li class="mobile-has-sub">
             <button class="mobile-sub-toggle nav-link" aria-expanded="false">
-              <a href="services.html#dev" class="nav-link"
+              <a href="services.html?id=railway" class="nav-link"
                 >Работа по подвижному составу</a
               >
             </button>
@@ -231,15 +244,17 @@
             </button>
             <ul class="mobile-submenu" aria-hidden="true">
               <li>
-                <a href="services.html#dev" class="nav-link"
+                <a href="services.html?id=analysis" class="nav-link"
                   >Анализ и проектирование</a
                 >
               </li>
               <li>
-                <a href="services.html#dev" class="nav-link">Интеграции</a>
+                <a href="services.html?id=integration" class="nav-link"
+                  >Интеграции</a
+                >
               </li>
               <li>
-                <a href="services.html#dev" class="nav-link"
+                <a href="services.html?id=support" class="nav-link"
                   >Тех.поддержка и сопровождение</a
                 >
               </li>
@@ -250,7 +265,7 @@
 
       <!-- Проекты -->
       <li class="nav-item">
-        <a href="projects.html" class="nav-link">Проекты</a>
+        <a href="cases.html" class="nav-link">Проекты</a>
       </li>
 
       <!-- Контакты -->
