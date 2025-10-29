@@ -1,0 +1,22 @@
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px;
+  border-top: 1px dashed black;
+  background-color: rgba(231, 240, 249, 0.85);
+  box-shadow: 0 4px 8px rgba(43, 131, 219, 0.8);
+}
+
+.footer-info {
+  display: flex;
+  flex: 0 0 30%;
+  padding-left: 10px;
+  text-align: left;
+}
+
+.footer-links {
+  flex: 0 0 60%;
+  text-align: right;
+  padding-right: 10px;
+}
