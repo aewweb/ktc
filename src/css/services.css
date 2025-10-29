@@ -1,0 +1,153 @@
+/* Базовые переменные */
+:root {
+  --text: #222;
+  --text-muted: #555;
+  --bg: #fff;
+  --card-bg: #fafafa;
+  --border: #e4e4e4;
+  --radius: 12px;
+  --transition: 0.25s ease;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Контейнер */
+.service-layout {
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+/* Заголовки */
+.service-hero h1 {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 600;
+  margin: 0.6em 0;
+  text-align: center;
+}
+
+.service-content h2 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  text-align: left;
+  /* margin: 0 0 2em; */
+}
+
+/* Блок с изображением и описанием */
+.service-content {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.service-content img {
+  width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.service-content img:hover {
+  transform: scale(1.015);
+  box-shadow: var(--shadow-hover);
+}
+
+.service-content p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 0;
+  text-align: justify;
+}
+
+/* Карточки подразделов */
+.service-subitems {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.subitem {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 22px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.subitem:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  background: #fff;
+}
+
+.subitem img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 15px;
+}
+
+.subitem h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0.6em 0;
+  color: var(--text);
+}
+
+.subitem p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+/* Технологии */
+.tech {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.tech img {
+  width: 28px;
+  height: 28px;
+  opacity: 0.8;
+  transition: opacity var(--transition);
+}
+
+.tech img:hover {
+  opacity: 1;
+}
+
+/* Адаптив */
+@media (max-width: 900px) {
+  .service-content {
+    grid-template-columns: 1fr;
+  }
+
+  .service-hero h1 {
+    margin: 1.5em 0;
+  }
+
+  .service-content p {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-layout {
+    padding: 30px 16px;
+  }
+
+  .subitem {
+    padding: 18px;
+  }
+}

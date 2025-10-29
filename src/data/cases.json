@@ -1,0 +1,216 @@
+{
+  "sapod": {
+    "shortTitle": "САПОД",
+    "title": "Система автоматизации подготовки и оформления документов грузовой и коммерческой отчетности",
+    "text": "Оформления перевозочных документов, ведение станционной и коммерческой отчетности, обмен данными с внешними информационными системами.",
+    "image": "assets/images/logo.svg",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": [
+      "assets/images/sapod_ss_1.png",
+      "assets/images/sapod_ss_2.png",
+      "assets/images/sapod_ss_3.png"
+    ]
+  },
+  "auzpuSapod": {
+    "shortTitle": "АУЗПУ САПОД",
+    "title": "Система автоматизации подготовки и оформления документов грузовой и коммерческой отчетности",
+    "text": "Автоматизация процесса учета и контроля всех типов ЗПУ на станциях, НОД и в целом по БЖД на всех этапах продвижения ЗПУ от их изготовления до применения (опломбирования вагона, контейнера), предоставление необходимой информации о ЗПУ",
+    "image": "assets/images/logo.svg",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": ["assets/images/auzpuSapod_ss_1.png"]
+  },
+  "asgtbc": {
+    "shortTitle": "АС ГТ БЧ",
+    "title": "АС ГТ БЧ",
+    "text": "Централизация расчета платежей за перевозки грузов по БЖД: расчет тарифных расстояний, расчет провозной платы и плат за все работы (услуги), связанные с организацией и осуществлением перевозок, в том числе оказываемые перевозчиками.",
+    "image": "assets/images/logo.svg",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": ["assets/images/asgtbc_ss_1.png"]
+  },
+  "raschetTarif": {
+    "shortTitle": "Расчет тарифа",
+    "title": "Расчет тарифа",
+    "text": "Веб-приложение для возможности таксировки груза за территорию БЖД, посредством внутренних API определяет расстояния и маршрута следования, предоставляет нормативно - справочную информацию по организации перевозки.",
+    "image": "assets/images/logo.svg",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": [
+      "assets/images/raschetTarif_ss_1.png",
+      "assets/images/raschetTarif_ss_2.png"
+    ]
+  },
+  "okna": {
+    "shortTitle": "АС «Окна»",
+    "title": "Автоматизированная система организации и планирования «окон»",
+    "text": "sfsfsfs",
+    "image": "assets/images/logo.svg",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": [
+      "assets/images/okna_ss_1.png",
+      "assets/images/okna_ss_2.png"
+    ]
+  },
+  "iaspg": {
+    "shortTitle": "ИАС ПГ",
+    "title": "Интегрированная автоматизированная система «Прогнозный график»: Автоматизированная система увязки составо-образования на технических станциях с прогнозным графиком движения на железнодорожных участках + Автоматизированная система формирования прогнозного графика движения поездов с функциями автодиспетчера и автоведения",
+    "text": "sfsfsfs",
+    "image": "assets/images/logo.svg",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": ["assets/images/iaspg_ss_1.png"]
+  },
+  "mdsbc": {
+    "shortTitle": "МДС БЧ",
+    "title": "МДС БЧ",
+    "text": "sfsfsfs",
+    "image": "assets/images/logo.svg",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": [
+      "assets/images/mdsbc_ss_1.png",
+      "assets/images/mdsbc_ss_2.png"
+    ]
+  },
+  "metrolog": {
+    "shortTitle": "Метролог 2.0",
+    "title": "Метролог 2.0",
+    "text": "sfsfsfs",
+    "image": "assets/images/logo.svg",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": [
+      "assets/images/metrolog_ss_1.png",
+      "assets/images/metrolog_ss_2.png",
+      "assets/images/metrolog_ss_3.png",
+      "assets/images/metrolog_ss_4.png",
+      "assets/images/metrolog_ss_5.png"
+    ]
+  },
+  "du58": {
+    "shortTitle": "АС «Журнал ДУ-58»",
+    "title": "АС «Журнал ДУ-58»",
+    "text": "sfsfsfs",
+    "image": "assets/images/logo.svg",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": [
+      "assets/images/du-58_ss_1.png",
+      "assets/images/du-58_ss_2.png",
+      "assets/images/du-58_ss_3.png"
+    ]
+  },
+  "aslc": {
+    "shortTitle": "АС «Лицевой счёт»",
+    "title": "АС «Лицевой счёт»",
+    "text": "sfsfsfs",
+    "image": "assets/images/aslc.png",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": [
+      "assets/images/aslc_ss_1.png",
+      "assets/images/aslc_ss_2.png"
+    ]
+  },
+  "opsasardp": {
+    "shortTitle": "ОПР АС АРДП",
+    "title": "Подсистема оперативного расписания поездов АС «Актуальное расписание движения поездов»",
+    "text": "Система предназначена для обеспечения предоставления данных об актуальном расписании движения поездов для перевозки пассажиров с ненумерованными местами информационным системам дороги",
+    "image": "assets/images/logo.svg",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": ["assets/images/opsasardp_ss_1.png"]
+  },
+  "assok": {
+    "shortTitle": "АС СОК",
+    "title": "Система оценки качества обслуживания пассажиров в поездах с нумерованными местами",
+    "text": "Система разрабатывается с целью цифровизации процесса оценки качества обслуживания потребителями услуг в поездах с нумерованными местами",
+    "image": "assets/images/logo.svg",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": [
+      "assets/images/assok_ss_1.png",
+      "assets/images/assok_ss_2.png",
+      "assets/images/assok_ss_3.png",
+      "assets/images/assok_ss_4.png",
+      "assets/images/assok_ss_5.png"
+    ]
+  },
+  "ipstechdoc": {
+    "shortTitle": "ИПС «ТехДокументБЧ»",
+    "title": "ИПС «ТехДокументБЧ»",
+    "text": "Система предназначена для обеспечения доступа работников БЖД к актуальным ТНПА и НТД, осуществления контроля за их тиражированием, формирования подборок документов по задаваемым параметрам и информирования пользователей о внесении изменений в фонд",
+    "image": "assets/images/logo.svg",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": [
+      "assets/images/ipstechdoc_ss_1.png",
+      "assets/images/ipstechdoc_ss_2.png"
+    ]
+  },
+  "ecolog": {
+    "shortTitle": "АС Эколог",
+    "title": "АС Эколог",
+    "text": "sfsfsfs",
+    "image": "assets/images/ecolog.png",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": ["assets/images/ecolog_ss_1.png"]
+  },
+  "askpv": {
+    "shortTitle": "АС «КПВ»",
+    "title": "АС «КПВ»",
+    "text": "sfsfsfs",
+    "image": "assets/images/askpv.png",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": [
+      "assets/images/logo.svg",
+      "assets/images/logo.svg",
+      "assets/images/logo.svg"
+    ]
+  },
+  "asvohr": {
+    "shortTitle": "АС «ВОХР»",
+    "title": "АС «ВОХР»",
+    "text": "sfsfsfs",
+    "image": "assets/images/asvohr.png",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": [
+      "assets/images/logo.svg",
+      "assets/images/logo.svg",
+      "assets/images/logo.svg"
+    ]
+  },
+  "asupkam": {
+    "shortTitle": "АСУП КАМ",
+    "title": "АСУП КАМ",
+    "text": "Назначением: Системы является минимизация коррупционных рисков в деятельности организаций Белорусской железной дороги.",
+    "image": "assets/images/asupkam.png",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": [
+      "assets/images/logo.svg",
+      "assets/images/logo.svg",
+      "assets/images/logo.svg"
+    ]
+  },
+  "gidneman": {
+    "shortTitle": "ГИД Нёман",
+    "title": "ГИД Нёман",
+    "text": "Предназначена для автоматизации построения графика исполненного движения на участках железной дороги, оборудованных системами диспетчерской централизации, для повышения эффективности работы поездного диспетчера, улучшения качества планирования пропуска поездов по диспетчерскому участку и формирования отчётной формы-приложения к графику исполненного движения поездов",
+    "image": "assets/images/logo.svg",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": ["assets/images/gidneman_ss_1.png"]
+  },
+  "mpcdnepr": {
+    "shortTitle": "МПЦ Днепр",
+    "title": "МПЦ Днепр",
+    "text": "sfsfsfs",
+    "image": "assets/images/logo.svg",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": [
+      "assets/images/mpcdnepr_ss_1.png",
+      "assets/images/mpcdnepr_ss_2.png"
+    ]
+  },
+  "armenergo": {
+    "shortTitle": "АРМ Энергодиспетчера",
+    "title": "АРМ Энергодиспетчера",
+    "text": "sfsfsfs",
+    "image": "assets/images/logo.svg",
+    "stack": ["assets/images/logo.svg", "assets/images/logo.svg"],
+    "screenshots": [
+      "assets/images/armenergo_ss_1.png",
+      "assets/images/armenergo_ss_2.png",
+      "assets/images/armenergo_ss_3.png"
+    ]
+  }
+}

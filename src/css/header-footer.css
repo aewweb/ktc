@@ -1,0 +1,555 @@
+:root {
+  --header-height: 70px;
+  --accent: #0072ce;
+}
+
+/* общий сброс */
+* {
+  box-sizing: border-box;
+}
+
+/* --- Шапка --- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  z-index: 3000; /* самый высокий: шапка всегда поверх затемнения и меню */
+  background: #fff;
+  backdrop-filter: blur(4px);
+  border-bottom: 1px dashed black;
+}
+
+/* Десктоп: 3 колонки (логотип | меню | кнопки) */
+.header-inner {
+  display: grid;
+  grid-template-columns: clamp(350px, 20vw, 450px) 1fr 0px clamp(
+      350px,
+      20vw,
+      450px
+    ); /* logo | center nav | right */
+  align-items: center;
+  height: var(--header-height);
+  padding: 0 10px;
+}
+
+/* Мобильные: 4 колонки (логотип | центр | бургер | кнопки) */
+@media (max-width: 992px) {
+  .header-inner {
+    grid-template-columns: auto 1px 48px auto; /* logo | center nav | burger | right */
+  }
+}
+
+.header-left {
+  grid-column: 1;
+  justify-self: start;
+}
+.header-center {
+  grid-column: 2;
+  justify-self: center;
+  left: 20%;
+}
+.burger {
+  grid-column: 3;
+  justify-self: center;
+}
+.header-right {
+  grid-column: 4;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+}
+
+/* логотип */
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 18px;
+}
+.logo strong {
+  font-size: 20px;
+}
+.logo-img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+/* навигация desktop */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-list {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  color: #133248;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: color 0.18s ease;
+  font-size: 18px;
+}
+.nav-link:hover {
+  color: var(--accent);
+}
+
+/* caret */
+.caret {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #133248;
+  border-bottom: 2px solid #133248;
+  transform: rotate(45deg);
+  margin-left: 6px;
+  opacity: 0.9;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+/* Desktop: активное состояние при открытом меню */
+.has-mega.open > .nav-link {
+  color: var(--accent);
+  /* background-color: rgba(0, 114, 206, 0.08); */
+}
+
+/* Desktop: переворот каретки при открытом меню */
+.has-mega.open > .nav-link .caret {
+  transform: rotate(-135deg);
+  border-color: var(--accent);
+}
+
+/* --- Mega menu (desktop) --- */
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 28px 0;
+  transform: translateY(8px);
+  opacity: 0;
+  transition: opacity 0.32s cubic-bezier(0.22, 0.9, 0.25, 1),
+    transform 0.32s cubic-bezier(0.22, 0.9, 0.25, 1);
+  display: none;
+  z-index: 2500;
+  /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); */
+}
+
+.has-mega.open > .mega-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mega-menu-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.mega-links {
+  flex: 0 0 auto; /* фиксируем, не растягивается */
+  width: max-content; /* ширина по самому длинному элементу */
+  min-width: 200px; /* на всякий случай — ограничение снизу */
+}
+
+/* Фиксированная область для подменю второго уровня */
+.mega-submenu-area {
+  flex: 0 0 auto;
+  min-height: 0;
+  background: transparent;
+  border-radius: 8px;
+  padding: 0;
+  border: none;
+  width: max-content;
+  min-width: 220px;
+  max-width: 320px;
+  margin-top: -6px; /* слегка перекрывает зазор под .has-sub */
+  padding-top: 6px; /* компенсируем визуально */
+}
+
+.mega-submenu-area .submenu-title {
+  display: none;
+}
+
+.mega-submenu-area .submenu-content {
+  display: none;
+  border-radius: 8px;
+  padding: 12px 8px;
+}
+
+.mega-submenu-area .submenu-content.active {
+  display: block;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mega-submenu-area .submenu-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mega-submenu-area .submenu-content a {
+  display: block;
+  padding: 10px 12px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.mega-submenu-area .submenu-content a:hover {
+  color: var(--accent);
+  background-color: rgba(0, 114, 206, 0.08);
+}
+
+.mega-links > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+/* Элементы первого уровня в mega menu */
+.mega-links > ul > li {
+  /* width: auto; */
+  position: relative;
+}
+
+.mega-links > ul > li > a {
+  text-decoration: none;
+  color: #133248;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 12px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.mega-links > ul > li > a:hover,
+.mega-links .has-sub.active > a {
+  color: var(--accent);
+}
+
+.mega-links > ul > li > p {
+  text-decoration: none;
+  color: #133248;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 12px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.mega-links > ul > li > p:hover,
+.mega-links .has-sub.active > p {
+  color: var(--accent);
+}
+
+/* Каретка для элементов с подменю (направлена вниз) */
+.mega-links .has-sub > p .caret {
+  transform: rotate(45deg);
+  margin-left: 4px;
+  border-color: #133248;
+}
+
+.mega-links .has-sub:hover > p .caret,
+.mega-links .has-sub.active > p .caret {
+  transform: rotate(-45deg);
+  border-color: var(--accent);
+}
+
+/* Убираем старое абсолютное позиционирование подменю */
+.mega-links .submenu {
+  display: none;
+}
+
+.mega-contacts {
+  flex: 1 1 auto; /* пусть занимает оставшееся место */
+  text-align: right;
+}
+
+/* header actions */
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.phone {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.btn-primary {
+  padding: 10px 25px;
+  background-color: black;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0072ce;
+}
+
+/* --- Burger (mobile) --- */
+.burger {
+  display: none; /* появится в медиазапросе */
+  background: transparent;
+  border: 0;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+.burger-line {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background: #133248;
+  border-radius: 2px;
+  transition: all 0.28s ease;
+}
+.burger-line.top {
+  top: 12px;
+}
+.burger-line.bottom {
+  top: 22px;
+}
+.burger.open .burger-line.top {
+  transform: rotate(45deg);
+  top: 17px;
+}
+.burger.open .burger-line.bottom {
+  transform: rotate(-45deg);
+  top: 17px;
+}
+
+/* --- Mobile menu --- */
+.mobile-menu {
+  position: fixed;
+  top: var(--header-height);
+  right: -360px;
+  width: 360px;
+  height: calc(100% - var(--header-height));
+  background: #fff;
+  z-index: 2200;
+  box-shadow: -8px 0 32px rgba(10, 20, 30, 0.12);
+  transition: right 0.32s cubic-bezier(0.22, 0.9, 0.25, 1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-menu-inner {
+  padding: 28px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* список */
+.mobile-nav-list {
+  flex: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* пункты верхнего уровня = .nav-link */
+.mobile-nav-list > li > a,
+.mobile-has-sub > .mobile-sub-toggle {
+  @extend .nav-link; /* используем те же стили */
+  width: 100%;
+  padding: 10px 0;
+  justify-content: space-between;
+  text-align: left;
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-has-sub > .mobile-submenu > li > a,
+.mobile-has-sub > .mobile-submenu > li > .mobile-sub-toggle {
+  font-size: 1rem;
+  font-weight: 400;
+  padding-left: 12px;
+}
+
+.mobile-submenu .mobile-submenu > li > a,
+.mobile-submenu .mobile-submenu > li > .mobile-sub-toggle {
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding-left: 12px;
+  opacity: 0.9;
+}
+
+/* hover такие же, как у nav-link */
+.mobile-nav-list > li > a:hover,
+.mobile-has-sub > .mobile-sub-toggle:hover {
+  color: var(--accent);
+}
+
+/* стрелочка (тот же caret, но прижат вправо) */
+.mobile-sub-toggle .caret {
+  margin-left: auto;
+  border-color: #133248;
+  transform: rotate(45deg);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.mobile-has-sub.open > .mobile-sub-toggle .caret {
+  transform: rotate(-135deg);
+  border-color: var(--accent);
+}
+
+/* подменю */
+.mobile-submenu {
+  display: none;
+  list-style: none;
+  margin: 6px 0 0 0;
+  padding-left: 16px;
+  flex-direction: column;
+  gap: 6px;
+}
+.mobile-has-sub.open > .mobile-submenu {
+  display: flex;
+}
+
+.mobile-submenu a {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333;
+  text-decoration: none;
+  padding: 6px 0;
+}
+.mobile-submenu a:hover {
+  color: var(--accent);
+}
+
+.mobile-sub-toggle > .mobile-submenu {
+  padding-left: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-left: none;
+}
+
+/*.mobile-submenu > .mobile-submenu {
+  padding-left: 16px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  border-left: 1px solid #e0e0e0;
+}
+
+.mobile-submenu .mobile-submenu a {
+  font-size: 0.95rem;
+} */
+
+/* блок контактов */
+.mobile-contacts {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  line-height: 2;
+}
+.mobile-contacts p {
+  margin: 6px 0;
+}
+.mobile-contacts .label {
+  color: #888;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.mobile-contacts .value {
+  color: #000;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .nav {
+    display: none;
+  }
+  .phone {
+    display: none;
+  }
+  .burger {
+    display: flex;
+  }
+  .header-center {
+    justify-self: start;
+  }
+  .logo-img {
+    height: 50px;
+  }
+}
+
+@media (max-width: 420px) {
+  .mobile-menu {
+    width: 100%;
+    right: -100%;
+  }
+  .mobile-menu.open {
+    right: 0;
+  }
+}
