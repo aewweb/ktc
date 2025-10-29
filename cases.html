@@ -3,25 +3,401 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Кейсы</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/header-footer.css" />
-    <link rel="stylesheet" href="css/cases.css" />
+
+    <title>cases — КТЦ БелЖД</title>
+    <meta name="description" content="Описание страницы cases" />
+    <meta name="keywords" content="КТЦ БелЖД, системы" />
+    <link rel="canonical" href="/cases.html" />
+
+    <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/header-footer.css">
+<link rel="stylesheet" href="./css/footer.css">
+<link rel="stylesheet" href="./css/cases.css">
+
   </head>
   <body>
     <div id="desktop-overlay" class="desktop-overlay" aria-hidden="true"></div>
+    <header class="site-header" role="banner">
+  <div class="header-inner">
+    <div class="header-left">
+      <a
+        class="logo"
+        href="./index.html"
+        aria-label="КТЦ БелЖД — на главную"
+      >
+        <img
+          src="./assets/images/logo.svg"
+          alt="КТЦ БелЖД логотип"
+          class="logo-img"
+        />
+      </a>
+    </div>
 
-    <div id="header"></div>
+    <div class="header-center">
+      <nav
+        class="nav"
+        id="main-nav"
+        role="navigation"
+        aria-label="Главное меню"
+      >
+        <ul class="nav-list">
+          <li class="nav-item has-mega">
+            <a href="./about.html" class="nav-link"
+              >О нас <span class="caret" aria-hidden="true"></span
+            ></a>
+            <div class="mega-menu" aria-hidden="true">
+              <div class="mega-menu-inner">
+                <div class="mega-col mega-links">
+                  <ul>
+                    <li>
+                      <a href="./certificates.html">Сертификаты</a>
+                    </li>
+                    <li><a href="./clients.html">Клиенты</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col mega-contacts">
+                  <p><strong>Контакты</strong></p>
+                  <p>+375 (17) 225-40-98</p>
+                  <p>факс: +375 (17) 225-29-30</p>
+                  <p><a href="mailto:ktc@ktc.by">ktc@ktc.by</a></p>
+                </div>
+              </div>
+            </div>
+          </li>
 
-    <main>
-      <h1>Наши проекты</h1>
-      <section class="cases-selector" id="casesSelector"></section>
-      <section class="case-card" id="caseCard"></section>
-    </main>
+          <li class="nav-item has-mega">
+            <a href="./services.html" class="nav-link"
+              >Услуги <span class="caret" aria-hidden="true"></span
+            ></a>
+            <div class="mega-menu" aria-hidden="true">
+              <div class="mega-menu-inner">
+                <div class="mega-col mega-links">
+                  <ul>
+                    <li class="has-sub" data-submenu="dev">
+                      <p>
+                        Разработка ПО
+                        <span class="caret" aria-hidden="true"></span>
+                      </p>
+                    </li>
+                    <li class="has-sub" data-submenu="low-level">
+                      <p>
+                        Низкоуровневое программирование
+                        <span class="caret" aria-hidden="true"></span>
+                      </p>
+                    </li>
+                    <li>
+                      <a href="./services/railway.html"
+                        >Работа по подвижному составу</a
+                      >
+                    </li>
+                    <li class="has-sub" data-submenu="additional">
+                      <p>
+                        Дополнительные услуги
+                        <span class="caret" aria-hidden="true"></span>
+                      </p>
+                    </li>
+                  </ul>
+                </div>
 
-    <div id="footer"></div>
+                <!-- Фиксированная область для подменю -->
+                <div class="mega-submenu-area">
+                  <!-- Разработка ПО -->
+                  <div class="submenu-content" data-submenu-id="dev">
+                    <ul>
+                      <li>
+                        <a href="./services/web-dev.html"
+                          >Веб-разработка</a
+                        >
+                      </li>
+                      <li>
+                        <a href="./services/desktop-dev.html"
+                          >Десктопные приложения</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
 
-    <script src="js/include.js"></script>
-    <script src="js/cases.js" defer></script>
+                  <!-- Низкоуровневое программирование -->
+                  <div class="submenu-content" data-submenu-id="low-level">
+                    <ul>
+                      <li>
+                        <a href="./services/system-prog.html"
+                          >Системное программирование</a
+                        >
+                      </li>
+                      <li>
+                        <a href="./services/embedded-sys.html"
+                          >Встраиваемые системы</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Дополнительные услуги -->
+                  <div class="submenu-content" data-submenu-id="additional">
+                    <ul>
+                      <li>
+                        <a href="./services/analysis.html"
+                          >Анализ и проектирование</a
+                        >
+                      </li>
+                      <li>
+                        <a href="./services/integration.html"
+                          >Интеграция</a
+                        >
+                      </li>
+                      <li>
+                        <a href="./services/support.html"
+                          >Тех. поддержка и сопровождение</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mega-col mega-contacts">
+                  <p><strong>Свяжитесь с нами</strong></p>
+                  <p>+375 (17) 225-40-98</p>
+                  <p><a href="mailto:ktc@ktc.by">ktc@ktc.by</a></p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="./cases.html">Проекты</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contacts.html">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- бургер: две линии -->
+    <button
+      id="burger"
+      class="burger"
+      aria-label="Открыть меню"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="burger-line top"></span>
+      <span class="burger-line bottom"></span>
+    </button>
+
+    <div class="header-right">
+      <div class="header-actions">
+        <a class="phone" href="tel:+375172254098">(+375 17) 225-40-98</a>
+        <a class="btn-primary" href="./order.html"
+          >Заказать продукт</a
+        >
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu вынесено ВНЕ header -->
+<div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-inner">
+    <ul class="mobile-nav-list">
+      <!-- О нас -->
+      <li class="mobile-has-sub nav-item">
+        <button class="mobile-sub-toggle nav-link" aria-expanded="false">
+          О нас <span class="caret" aria-hidden="true"></span>
+        </button>
+        <ul class="mobile-submenu" aria-hidden="true">
+          <li>
+            <a href="./certificates.html" class="nav-link"
+              >Сертификаты</a
+            >
+          </li>
+          <li>
+            <a href="./clients.html" class="nav-link">Клиенты</a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Услуги -->
+      <li class="mobile-has-sub nav-item">
+        <button class="mobile-sub-toggle nav-link" aria-expanded="false">
+          Услуги <span class="caret" aria-hidden="true"></span>
+        </button>
+        <ul class="mobile-submenu" aria-hidden="true">
+          <li class="mobile-has-sub">
+            <button class="mobile-sub-toggle nav-link" aria-expanded="false">
+              Разработка ПО <span class="caret" aria-hidden="true"></span>
+            </button>
+            <ul class="mobile-submenu" aria-hidden="true">
+              <li>
+                <a href="./services/web-dev.html" class="nav-link"
+                  >Веб-разработка</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./services/desktop-dev.html"
+                  class="nav-link"
+                  >Десктопные приложения</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="mobile-has-sub">
+            <button class="mobile-sub-toggle nav-link" aria-expanded="false">
+              Низкоуровневое программирование
+              <span class="caret" aria-hidden="true"></span>
+            </button>
+            <ul class="mobile-submenu" aria-hidden="true">
+              <li>
+                <a
+                  href="./services/system-prog.html"
+                  class="nav-link"
+                  >Системное программирование</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./services/embedded-sys.html"
+                  class="nav-link"
+                  >Встраиваемые системы</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="./services/railway.html" class="nav-link"
+              >Работа по подвижному составу</a
+            >
+          </li>
+
+          <li class="mobile-has-sub">
+            <button class="mobile-sub-toggle nav-link" aria-expanded="false">
+              Доп.услуги
+              <span class="caret" aria-hidden="true"></span>
+            </button>
+            <ul class="mobile-submenu" aria-hidden="true">
+              <li>
+                <a href="./services/analysis.html" class="nav-link"
+                  >Анализ и проектирование</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./services/integration.html"
+                  class="nav-link"
+                  >Интеграции</a
+                >
+              </li>
+              <li>
+                <a href="./services/support.html" class="nav-link"
+                  >Тех.поддержка и сопровождение</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Проекты -->
+      <li class="nav-item">
+        <a href="./cases.html" class="nav-link">Проекты</a>
+      </li>
+
+      <!-- Контакты -->
+      <li class="nav-item">
+        <a href="./contacts.html" class="nav-link">Контакты</a>
+      </li>
+    </ul>
+
+    <!-- Контакты внизу меню -->
+    <div class="mobile-contacts">
+      <p class="label">Телефоны и e-mail</p>
+      <p class="value">+375 (17) 225-40-98</p>
+      <p class="value">+375 (17) 225-29-30 (факс)</p>
+      <p class="value"><a href="mailto:ktc@ktc.by">ktc@ktc.by</a></p>
+
+      <p class="label">Адрес офиса</p>
+      <p class="value">г. Минск, ул. Брест-Литовская, 9а</p>
+
+      <p class="label">Время работы</p>
+      <p class="value">Пн—Пт: 9:00 – 18:00</p>
+    </div>
+  </div>
+</div>
+
+<div
+  id="menu-overlay"
+  class="menu-overlay"
+  aria-hidden="true"
+  tabindex="-1"
+></div>
+
+    <main><section class="cases-selector">
+  <h1>Наши проекты</h1>
+  <div class="cases-grid">
+    <a class="btn" href="./cases/neman.html">
+      <span class="btn-icon">🚂</span>
+      <span class="btn-text">Неман</span>
+    </a>
+    <a class="btn" href="./cases/auto.html">
+      <span class="btn-icon">⚙️</span>
+      <span class="btn-text">Автоматизация</span>
+    </a>
+    <a class="btn" href="./cases/ui.html">
+      <span class="btn-icon">🎨</span>
+      <span class="btn-text">UI-платформа</span>
+    </a>
+    <a class="btn" href="./cases/crm.html">
+      <span class="btn-icon">👥</span>
+      <span class="btn-text">CRM</span>
+    </a>
+    <a class="btn" href="./cases/iot.html">
+      <span class="btn-icon">📡</span>
+      <span class="btn-text">IoT</span>
+    </a>
+    <a class="btn" href="./cases/erp.html">
+      <span class="btn-icon">📊</span>
+      <span class="btn-text">ERP</span>
+    </a>
+    <a class="btn" href="./cases/gis.html">
+      <span class="btn-icon">🗺️</span>
+      <span class="btn-text">GIS</span>
+    </a>
+    <a class="btn" href="./cases/api.html">
+      <span class="btn-icon">🔌</span>
+      <span class="btn-text">API-шлюз</span>
+    </a>
+    <a class="btn" href="./cases/website.html">
+      <span class="btn-icon">🌐</span>
+      <span class="btn-text">Сайт компании</span>
+    </a>
+    <a class="btn" href="./cases/ml.html">
+      <span class="btn-icon">🤖</span>
+      <span class="btn-text">ML-модуль</span>
+    </a>
+  </div>
+</section>
+</main>
+    <footer class="site-footer">
+  <div class="container">
+    <div class="footer-info">
+      <p>© КТЦ БелЖД, 2025</p>
+      <p>УНП: 100123456</p>
+      <p>Почтовый адрес: 220039, г. Минск, ул. Брест-Литовская, 9а</p>
+      <p>Тел.: (+375 17) 225 40 98 | Факс: 225 29 30</p>
+      <p>E-mail: ktc@ktc.by</p>
+    </div>
+    <div class="footer-links">
+      <a href="./docs/privacy.html">Политика конфиденциальности</a>
+      <a href="./docs/gost.pdf" target="_blank">ГОСТ РБ</a>
+    </div>
+  </div>
+</footer>
+ <script src="./js/header-footer.js"></script>
+<script src="./js/cases.js"></script>
+
   </body>
 </html>

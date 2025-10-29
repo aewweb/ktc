@@ -273,15 +273,35 @@
   color: var(--accent);
 }
 
+.mega-links > ul > li > p {
+  text-decoration: none;
+  color: #133248;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 12px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.mega-links > ul > li > p:hover,
+.mega-links .has-sub.active > p {
+  color: var(--accent);
+}
+
 /* Каретка для элементов с подменю (направлена вниз) */
-.mega-links .has-sub > a .caret {
+.mega-links .has-sub > p .caret {
   transform: rotate(45deg);
   margin-left: 4px;
   border-color: #133248;
 }
 
-.mega-links .has-sub:hover > a .caret,
-.mega-links .has-sub.active > a .caret {
+.mega-links .has-sub:hover > p .caret,
+.mega-links .has-sub.active > p .caret {
   transform: rotate(-45deg);
   border-color: var(--accent);
 }
