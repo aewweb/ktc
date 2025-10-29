@@ -55,7 +55,7 @@ h1 {
   font-size: 1.6rem;
   margin: 0 0 1rem 0;
   color: var(--accent);
-  text-align: center;
+  text-align: left;
 }
 
 .case-description {
